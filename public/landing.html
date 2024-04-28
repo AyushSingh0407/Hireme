@@ -17,14 +17,20 @@
             <a href="landing.html">HireMe</a>
         </div>
         <div class="nav-buttons">
-            <button>Find Company</button>
-            <button id="employ-btn">Login</button>
+            <button id="find-btn">Find Company</button>
+            <button id="employ-btn">Employer</button>
         </div>
     </nav>
-    <div>
+
+    <div id="display-container">
+    <div id="display-text">
         <p id="title1">Discover the best jobs</p>
-        <p id="title2">Browse thousands of job listings to work at startups and leading companies</p>
-        <a id="browse" href="homepage.html">Browse all jobs</a>
+        <p id="title2">Browse thousands of job listings to work at startups and
+            leading companies</p>
+        <a id="browse" href="homepage.html">Browse all jobs </a>
+        <br>
+    </div>
+    <div id="display-image"><img id="display-illustration" src="Illustration.svg"></div>
     </div>
 
     <script>
@@ -33,6 +39,12 @@
 
         signupButton.addEventListener('click', () => {
             window.location.href = 'login.html'; 
+        });
+
+        const findButton = document.getElementById('find-btn');
+
+        findButton.addEventListener('click', () => {
+            window.location.href = 'searchjob.html'; 
         });
     </script>
 </body>
