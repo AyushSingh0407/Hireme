@@ -16,7 +16,7 @@
             <a href="landing.html">HireMe</a>
         </div>
         <div class="nav-buttons">
-            <button>Find Company</button>
+            <button id="find-btn">Find Company</button>
             <button id="signup">Signup</button>
         </div>
     </nav>
@@ -39,6 +39,12 @@
 
         signupButton.addEventListener('click', () => {
             window.location.href = 'signup.html'; 
+        });
+
+        const findButton = document.getElementById('find-btn');
+
+        findButton.addEventListener('click', () => {
+            window.location.href = 'searchjob.html'; 
         });
     </script>
 </html>
