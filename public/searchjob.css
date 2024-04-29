@@ -1,6 +1,10 @@
 body {
     margin: 0;
+<<<<<<< HEAD
     font-family: 'Inter', Arial, sans-serif; 
+=======
+    font-family: 'Inter', Arial, sans-serif; /* Change font */
+>>>>>>> 4df642b3a72f7a4cb39b3647c07edc5e715ba49a
 }
 
 .navbar {
@@ -13,7 +17,11 @@ body {
 
 .logo a {
     color: #FFF;
+<<<<<<< HEAD
     font-size: 1.5rem; 
+=======
+    font-size: 1.5rem; /* Responsive font size */
+>>>>>>> 4df642b3a72f7a4cb39b3647c07edc5e715ba49a
     font-weight: 700;
     text-decoration: none;
 }
@@ -21,9 +29,15 @@ body {
 .nav-buttons button {
     border: none;
     color: #fff;
+<<<<<<< HEAD
     font-size: 14px; 
     cursor: pointer;
     padding: 10px 20px; 
+=======
+    font-size: 14px; /* Responsive font size */
+    cursor: pointer;
+    padding: 10px 20px; /* Adjust padding */
+>>>>>>> 4df642b3a72f7a4cb39b3647c07edc5e715ba49a
     border-radius: 8px;
     background: #2341D5;
     font-weight: 600;
@@ -32,6 +46,7 @@ body {
 
 #container {
     text-align: center;
+<<<<<<< HEAD
     margin-top: 50px; 
 }
 
@@ -49,12 +64,32 @@ body {
     width: 80%; 
     max-width: 300px; 
     padding: 12px;
+=======
+    margin-top: 50px; /* Add margin for better spacing */
+}
+
+#title {
+    margin-top: 20px; /* Adjust spacing */
+    font-size: 24px; /* Responsive font size */
+}
+
+#label {
+    margin-top: 20px; /* Adjust spacing */
+    font-size: 18px; /* Responsive font size */
+}
+
+#search-input {
+    width: 80%; /* Adjust input width */
+    max-width: 300px; /* Set max-width */
+    padding: 12px; /* Adjust padding */
+>>>>>>> 4df642b3a72f7a4cb39b3647c07edc5e715ba49a
     border-radius: 8px;
     border: 1px solid #000;
     background: #fff;
 }
 
 #search-btn {
+<<<<<<< HEAD
     width: 80%; 
     max-width: 200px; 
     padding: 12px; 
@@ -62,6 +97,15 @@ body {
     background: #2341d5;
     color: #fff;
     font-size: 16px;
+=======
+    width: 80%; /* Adjust button width */
+    max-width: 200px; /* Set max-width */
+    padding: 12px; /* Adjust padding */
+    border-radius: 8px;
+    background: #2341d5;
+    color: #fff;
+    font-size: 16px; /* Responsive font size */
+>>>>>>> 4df642b3a72f7a4cb39b3647c07edc5e715ba49a
     font-weight: 600;
     border: 0;
     cursor: pointer;
@@ -69,8 +113,13 @@ body {
 
 #search-result {
     text-align: center;
+<<<<<<< HEAD
     margin-top: 20px; 
     font-size: 16px; 
+=======
+    margin-top: 20px; /* Adjust spacing */
+    font-size: 16px; /* Responsive font size */
+>>>>>>> 4df642b3a72f7a4cb39b3647c07edc5e715ba49a
 }
 
 @media screen and (max-width: 600px) {
