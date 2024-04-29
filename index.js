@@ -95,13 +95,13 @@ app.post("/login", async (req, res) => {
             return res.status(401).send('<script>alert("Invalid email or password!"); window.location="/login";</script>');
         }
 
-        
-        const companyname = company.companyname;
 
-        
-        const token = jwt.sign({ companyname: companyname }, 'your_secret_key', { expiresIn: '1h' });
+        req.session.companyname = company.companyname;
 
-        
+
+        const token = jwt.sign({ companyname: company.companyname }, 'your_secret_key', { expiresIn: '1h' });
+
+
         req.session.token = token;
         req.session.save();
 
@@ -136,63 +136,62 @@ app.get("/login", (req, res) => {
 });
 
 app.get("/postjob", validateAuthToken, (req, res) => {
-            return res.redirect("/postjob.html");
+    return res.redirect("/postjob.html");
 });
 
 app.get("/update", validateAuthToken, (req, res) => {
-            return res.redirect("/update.html");
+    return res.redirect("/update.html");
 });
 
 app.get("/signup", (req, res) => {
     res.redirect('/signup.html');
 });
 
-app.get("/homepage",(req, res) => {
+app.get("/homepage", (req, res) => {
     res.sendFile(__dirname + '/homepage.html');
 });
 
 app.get('/company-name', validateAuthToken, (req, res) => {
-    if (req.session.company) {
-      const companyname = req.session.company.companyname;
-      res.json({ companyname });
+    if (req.session.companyname) {
+        res.json({ companyname: req.session.companyname });
     } else {
-      res.status(401).json({ message: 'Unauthorized' });
+        res.status(401).json({ message: 'Unauthorized or company name not available' });
     }
-  });
+});
 
-  app.get('/jobs', async (req, res) => {
+app.get('/jobs', async (req, res) => {
     try {
-      const jobDetails = await db.collection('jobdetail').find({}).toArray();
-      res.json(jobDetails);
+        const jobDetails = await db.collection('jobdetail').find({}).toArray();
+        res.json(jobDetails);
     } catch (error) {
-      console.error('Error fetching job details:', error);
-      res.status(500).send('Error fetching job details');
+        console.error('Error fetching job details:', error);
+        res.status(500).send('Error fetching job details');
     }
-  });
+});
 
 app.post("/update-email", validateAuthToken, async (req, res) => {
     try {
         const { currentEmail, newEmail, password } = req.body;
         const companyname = req.companyname; // Access companyname from the decoded token
 
-        
+
         const company = await db.collection('company').findOne({ companyname: companyname, companyemail: currentEmail, companypassword: password });
         if (!company) {
             return res.status(400).json({ error: "Invalid current email or password." });
         }
 
-        
+
         if (!req.session.company) {
             req.session.company = {};
         }
 
-        
+
         await db.collection('company').updateOne(
             { companyname: companyname },
             { $set: { companyemail: newEmail } }
         );
 
-    
+
         req.session.company.companyemail = newEmail;
         await req.session.save();
 

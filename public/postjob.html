@@ -66,69 +66,72 @@
             display: inline-block;
             margin-top: 5px;
         }
-        #find-btn,
-    #logout{
-      padding: 11px 22px;
-      border-radius: 8px;
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: 600;
-      line-height: normal;
-    }
-    .navbar {
-    background-color: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
 
-.logo a {
-    color: #FFF;
-    font-family: 'Poppins', sans-serif;
-    font-size: 35px;
-    font-weight: 700;
-    margin-top: 23px;
-    margin-left: 20px;
-    text-decoration: none;
-}
+        #update-btn,
+        #logout {
+            padding: 11px 22px;
+            border-radius: 8px;
+            font-family: Inter;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+        }
 
-.nav-buttons button {
-    border: none;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
-    padding: 11px 22px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: normal;
-    background: #2341D5;
-    color: #FFF;
-}
+        .navbar {
+            background-color: #000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
 
-/* Media Query for Mobile Devices */
-@media screen and (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+        .logo-icon a {
+            color: #FFF;
+            font-family: 'Poppins', sans-serif;
+            font-size: 35px;
+            font-weight: 700;
+            margin-top: 23px;
+            margin-left: 20px;
+            text-decoration: none;
+        }
 
-    .nav-buttons {
-        margin-top: 10px;
-    }
+        .nav-buttons button {
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+            padding: 11px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: normal;
+            background: #2341D5;
+            color: #FFF;
+        }
 
-    .nav-buttons button {
-        margin-left: 0;
-        margin-top: 5px;
-    }
-}
+        #logo {
+            background: transparent;
+            color: white;
+            cursor: default;
 
-    #logout{
-      background: #2341d5;
-      color: #fff;
-    }
+        }
+
+        #logout {
+            background: #2341d5;
+            color: #fff;
+        }
+
+        #update-btn {
+            background: white;
+            color: black;
+        }
+
+        #cname-btn{
+            background: transparent;
+            color: black;
+            font-size: 24px;
+        }
 
 
         .error-container {
@@ -138,7 +141,6 @@
             background-color: #ffe;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -148,27 +150,30 @@
                 height: 120px;
             }
         }
-        @media only screen and (max-width: 800px) {
-      #logo {
-        font-size: 28px; /* Decrease font size for smaller screens */
-      }
-    }
-        @media only screen and (max-width: 600px) {
-      #navbar {
-        height: auto; /* Allow navbar to expand vertically */
-        flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align items to the start */
-      }
-    }
-      #logo {
-        margin-bottom: 10px; /* Add space below logo */
-      }
 
-      #find-btn,
-      #employ-btn {
-        margin-top: 10px; /* Add space between buttons */
-        margin-left: 20px; /* Keep buttons together */
-      }
+        @media only screen and (max-width: 800px) {
+            #logo {
+                font-size: 28px;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-buttons {
+                margin-top: 10px;
+            }
+
+            .nav-buttons button {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+
 
         @media (max-width: 576px) {
             .container {
@@ -186,25 +191,26 @@
             #footer {
                 height: 150px;
             }
-            
+
         }
-        
     </style>
 </head>
 
 <body>
-    <div id="navbar">
-  <span>
-    <p id="logo"></p>
-  </span>
-  <span>
-    <button id="logout">Logout</button>
-  </span>
-  <span>
-  <button id="update-btn">Update</button>
-</span>
-</div>
-    </nav> <br><br>
+
+    <nav class="navbar">
+        <div class="logo-icon">
+            <a href="#">HireMe</a>
+        </div>
+        <div class="nav-buttons">
+            <button id="cname-btn"><span id="logo"></span></button>
+            <button id="update-btn">Update</button>
+            <button id="logout">Logout</button>
+        </div>
+    </nav>
+
+
+    <br><br>
     <h3 align="center">Post a job</h3>
     <table align="center">
         <form method="post" action="/postjob" id="job">
@@ -408,51 +414,55 @@
                 $(this).unbind('submit').submit();
             }
             if (errorMessages.length > 0) {
-      var errorMessageString = errorMessages.join('<br>');
-      $('.error-container').remove(); 
-      $(this).before('<div class="error-container">' + errorMessageString + '</div>');
-    } else {
-      $(this).unbind('submit').submit();
-    }
+                var errorMessageString = errorMessages.join('<br>');
+                $('.error-container').remove();
+                $(this).before('<div class="error-container">' + errorMessageString + '</div>');
+            } else {
+                $(this).unbind('submit').submit();
+            }
         });
     });
-const logoutButton = document.getElementById('logout');
-const companyNameElement = document.getElementById('logo');
-fetch('/company-name', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    companyNameElement.textContent = data.companyname;
-  })
-  .catch(error => {
-    console.error('Error fetching company name:', error);
-  });
-
-logoutButton.addEventListener('click', () => {
-    fetch('/logout', {
-        method: 'POST',
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = '/landing.html';
-        } else {
-            alert('Error logging out. Please try again.');
+    const logoutButton = document.getElementById('logout');
+    const companyNameElement = document.getElementById('logo');
+    fetch('/company-name', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
         }
     })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again later.');
-    });
-});
-const updateButton = document.getElementById('update-btn');
+        .then(response => response.json())
+        .then(data => {
+            if (data.companyname) {
+                companyNameElement.textContent = data.companyname;
+            } else {
+                console.error('Company name not available');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching company name:', error);
+        });
 
-updateButton.addEventListener('click', () => {
-  window.location.href = 'update.html';
-});
+    logoutButton.addEventListener('click', () => {
+        fetch('/logout', {
+            method: 'POST',
+        })
+            .then(response => {
+                if (response.ok) {
+                    window.location.href = '/landing.html';
+                } else {
+                    alert('Error logging out. Please try again.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+    });
+    const updateButton = document.getElementById('update-btn');
+
+    updateButton.addEventListener('click', () => {
+        window.location.href = 'update.html';
+    });
 </script>
 
 

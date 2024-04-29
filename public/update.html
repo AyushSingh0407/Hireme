@@ -17,9 +17,13 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>HireMe</title>
     <style>
-        /* Reuse the existing styles */
+
         body {
             font-family: 'Inter', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: black;
         }
 
         input,
@@ -59,7 +63,7 @@
             width: 100%;
             background-color: #000;
             height: 80px;
-            margin-top: 20px;
+            margin-top: 10%;
             margin-bottom: 0;
         }
 
@@ -69,7 +73,7 @@
             margin-top: 5px;
         }
 
-        #find-btn,
+        #go-back,
         #logout {
             padding: 11px 22px;
             border-radius: 8px;
@@ -87,7 +91,7 @@
             padding: 10px 20px;
         }
 
-        .logo a {
+        .logo-icon a {
             color: #FFF;
             font-family: 'Poppins', sans-serif;
             font-size: 35px;
@@ -111,6 +115,9 @@
             background: #2341D5;
             color: #FFF;
         }
+        #go-back{
+            background-color: white;
+        }
 
         /* Media Query for Mobile Devices */
         @media screen and (max-width: 600px) {
@@ -133,7 +140,12 @@
             background: #2341d5;
             color: #fff;
         }
-
+        #logo{
+            background: transparent;
+            color: white;
+            font-size: 24px;
+        }
+        
         .error-container {
             border: 1px solid red;
             padding: 10px;
@@ -144,15 +156,17 @@
 </head>
 
 <body>
-    <div id="navbar">
-        <span>
-            <p id="logo"></p>
-        </span>
-        <span>
+    <nav class="navbar">
+        <div class="logo-icon">
+            <a href="#">HireMe</a>
+        </div>
+        <div class="nav-buttons">
+            <button id="logo"></button>
+            <button id="go-back"><a href="/postjob.html">Go Back</a></button>
             <button id="logout">Logout</button>
-        </span>
-    </div>
+        </div>
     </nav>
+
     <br><br>
     <h3 align="center">Update Email Address</h3>
     <table align="center">
